@@ -7,7 +7,6 @@ public class MyStack {
         massive = new Object[255];
         size = 0;
     }
-
     public void push(Object element) {
         if (size < massive.length) {
             massive[size] = element;
@@ -21,5 +20,13 @@ public class MyStack {
             return massive[size];
         }
         return null;
+    }
+
+    public int size() {
+        size = 0;
+        if (size < massive.length) {
+            size++;
+        }
+        return size;
     }
 }
