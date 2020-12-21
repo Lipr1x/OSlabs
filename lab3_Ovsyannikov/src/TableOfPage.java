@@ -16,15 +16,14 @@ public class TableOfPage {
     }
 
     public Page getUsedPage() {
-        Page pageLRU = physicalPages[0];
         for (int i = 0; i < physicalPages.length; i++) {
-            if (physicalPages[i] != null) {
-                if (pageLRU == null || pageLRU.getLastAppeal() > physicalPages[i].getLastAppeal()) {
-                    pageLRU = physicalPages[i];
-                }
+            if (physicalPages[i].clockFlag) {
+                physicalPages[i].clockFlag = false;
+            }else{
+                return physicalPages[i];
             }
         }
-        return pageLRU;
+        return getUsedPage();
     }
 
     private boolean physicalPageVirtualPage(Page page) {

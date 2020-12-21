@@ -7,6 +7,7 @@ public class Page {
     private int pageSize;
     private final TableOfPage tableOfPage;
     private final Process process;
+    public boolean clockFlag = true;
 
     public Page(int bits, TableOfPage tableOfPage, Process process, int pageNumber) {
         this.bits = bits;
